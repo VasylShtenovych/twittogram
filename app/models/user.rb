@@ -3,4 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable,:rrememberable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable,  :validatable
+
+  has_many :posts, foreign_key: :author_id, inverse_of: :author
 end

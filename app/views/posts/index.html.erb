@@ -1,0 +1,30 @@
+
+<div class="row">
+  <div class="col-md-8 col-12">
+    <div class="row align-items-center mb-4">
+      <div class="col-auto"><h4 class="pt-2">Your feed</h4></div>
+      <div class="col-auto">
+        <%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+
+    <% @posts.each do |post| %>
+      <% unless post.draft %>
+      <div class="mb-5">
+        <p class="mb-1"><%= link_to post.title, post, class:"fs-4 text-dark text-decoration-none" %>
+          <%= link_to '', edit_post_path(post), class: "bi bi-pencil-fill text-primary fs-4 ms-5" %>
+          <%= link_to '', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "bi bi-trash-fill text-danger fs-4" %>
+        </p>
+        <p class="mb-1"><a class="fst-italic text-dark text-decoration-none" href="#"><%= post.author.username %></a></p>
+        <p class="mb-1"><%= link_to post.created_at, post, class:"fst-italic text-dark text-decoration-none" %></p>
+        <p><%= post.body %></p>
+
+
+        <p></p>
+      </div>
+        <% end %>
+    <% end %>
+
+
+  </div>
+</div>
