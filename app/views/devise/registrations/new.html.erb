@@ -1,0 +1,36 @@
+<main class="form-signin ">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="text-center">
+      <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+
+    </div>
+
+  <div class="form-floating">
+    <%= f.email_field :email, autocomplete: "email", class: "form-control" , placeholder: "Password" %>
+    <%= f.label :email %>
+  </div>
+
+  <div class="form-floating">
+    <%= f.text_field :username,autocomplete: "username", class: "form-control", placeholder: "Password"   %>
+    <%= f.label :username %>
+  </div>
+
+  <div class="form-floating">
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password"   %>
+    <%= f.label :password %>
+  </div>
+
+  <div class="form-floating">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Password"   %>
+    <%= f.label :password_confirmation %><br />
+  </div>
+
+    <%= f.submit "Sign up" , class: "w-100 btn btn-lg btn-primary mb-4 mt-1" %>
+
+    <p class="mt-3">Have an account? <%= link_to 'Log in', new_user_session_path %></p>
+<% end %>
+
+
+</main>
