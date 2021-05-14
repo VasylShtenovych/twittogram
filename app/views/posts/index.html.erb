@@ -19,6 +19,10 @@
         <p class="mb-1"><%= link_to post.created_at, post, class:"fst-italic text-dark text-decoration-none" %></p>
         <p><%= post.body %></p>
 
+        <% if post.post_picture.attached? %>
+          <img src="<%=(url_for(post.post_picture))%>" class="mw-100" alt="">
+        <% end %>
+
 
         <p></p>
       </div>

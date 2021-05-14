@@ -22,6 +22,11 @@
   </div>
 
   <div class="mb-3">
+    <%= form.label :post_picture, class: "form-label" %>
+    <%= form.file_field :post_picture, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
     <%= form.check_box :draft %>
     <%= form.label :draft, class: "form-label d-inline-block ms-2" %>
   </div>
