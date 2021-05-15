@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="col-md-8 col-12">
+  <div class="col-md-9 col-12">
     <div class="row align-items-center mb-4">
       <div class="col-auto"><h4 class="pt-2">Your feed</h4></div>
       <div class="col-auto">
@@ -22,6 +22,10 @@
         <% if post.post_picture.attached? %>
           <img src="<%=(url_for(post.post_picture))%>" class="mw-100" alt="">
         <% end %>
+        <div class="mt-3">
+<!--          <span class="me-3"><i class="bi bi-heart-fill fs-6 me-1 text-danger"></i> 0 likes</span>-->
+          <span><%= link_to '', post, class:"bi bi-chat-left-text-fill fs-6 me-1 text-dark text-decoration-none" %> <%= link_to "#{post.comments.length} comments", post, class:"text-dark text-decoration-none" %>  </span>
+        </div>
 
 
         <p></p>

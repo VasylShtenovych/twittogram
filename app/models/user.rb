@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable,  :validatable
 
   has_many :posts, foreign_key: :author_id, inverse_of: :author
+  has_many :comments, foreign_key: :author_id, inverse_of: :author
 end
