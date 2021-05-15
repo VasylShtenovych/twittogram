@@ -4,24 +4,32 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
+    authorize Post
+
     @posts = Post.ordered.with_authors
   end
 
   # GET /posts/1 or /posts/1.json
   def show
+    authorize @post
   end
 
   # GET /posts/new
   def new
+    authorize Post
+
     @post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
+    authorize @post
   end
 
   # POST /posts or /posts.json
   def create
+    authorize Post
+
     @post = Post.new(post_params)
     # @post.post_picture.attach(params[:post_picture])
     @post.author = current_user
@@ -39,6 +47,8 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
+    authorize @post
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: "Post was successfully updated." }
@@ -52,6 +62,8 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
+    authorize @post
+
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
