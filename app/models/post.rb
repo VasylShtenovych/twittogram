@@ -6,5 +6,6 @@ class Post < ApplicationRecord
   validates :title, presence: true
 
   scope :ordered, ->(direction = :desc) { order(created_at: direction) }
+  scope :drafts, ->(value = true) { where(draft: value) }
   scope :with_authors, -> { includes(:author) }
 end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :posts do
     resources :comments
+    get '/drafts', to: 'posts#drafts', on: :collection
   end
   devise_for :users
 

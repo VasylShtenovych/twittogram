@@ -6,7 +6,15 @@ class PostsController < ApplicationController
   def index
     authorize Post
 
-    @posts = Post.ordered.with_authors
+    @posts = Post.drafts(false).ordered.with_authors
+  end
+
+  # GET /posts/drafts
+  def drafts
+    authorize Post
+
+    @posts = current_user.admin? ? Post.all : current_user.posts
+    @posts = @posts.drafts.ordered.with_authors
   end
 
   # GET /posts/1 or /posts/1.json

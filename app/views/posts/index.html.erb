@@ -8,35 +8,7 @@
       </div>
     </div>
 
-    <% @posts.each do |post| %>
-      <% unless post.draft %>
-      <div class="mb-5">
-        <p class="mb-1"><%= link_to post.title, post, class:"fs-4 text-dark text-decoration-none" %>
-          <% if policy(post).update? %>
-            <%= link_to '', edit_post_path(post), class: "bi bi-pencil-fill text-primary fs-4 ms-5" %>
-          <% end %>
-
-          <% if policy(post).destroy? %>
-            <%= link_to '', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "bi bi-trash-fill text-danger fs-4" %>
-          <% end %>
-        </p>
-        <p class="mb-1"><a class="fst-italic text-dark text-decoration-none" href="#"><%= post.author.username %></a></p>
-        <p class="mb-1"><%= link_to post.created_at, post, class:"fst-italic text-dark text-decoration-none" %></p>
-        <p><%= post.body %></p>
-
-        <% if post.post_picture.attached? %>
-          <img src="<%=(url_for(post.post_picture))%>" class="mw-100" alt="">
-        <% end %>
-        <div class="mt-3">
-<!--          <span class="me-3"><i class="bi bi-heart-fill fs-6 me-1 text-danger"></i> 0 likes</span>-->
-          <span><%= link_to '', post, class:"bi bi-chat-left-text-fill fs-6 me-1 text-dark text-decoration-none" %> <%= link_to "#{post.comments.length} comments", post, class:"text-dark text-decoration-none" %>  </span>
-        </div>
-
-
-        <p></p>
-      </div>
-        <% end %>
-    <% end %>
+    <%= render 'posts', posts: @posts %>
 
 
   </div>

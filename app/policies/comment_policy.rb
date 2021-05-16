@@ -1,6 +1,6 @@
 class CommentPolicy < ApplicationPolicy
   def destroy?
-    author?
+    author? || admin?
   end
 
 

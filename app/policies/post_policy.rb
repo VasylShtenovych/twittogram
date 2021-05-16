@@ -4,7 +4,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def show?
-    (not record.draft?) || author?
+    (not record.draft?) || author? || admin?
   end
 
   def create?
@@ -12,11 +12,15 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    author?
+    author? || admin?
   end
 
   def destroy?
-    author?
+    author? || admin?
+  end
+
+  def drafts?
+    !!user
   end
 
   private
