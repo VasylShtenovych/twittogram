@@ -8,4 +8,9 @@ class Post < ApplicationRecord
   scope :ordered, ->(direction = :desc) { order(created_at: direction) }
   scope :drafts, ->(value = true) { where(draft: value) }
   scope :with_authors, -> { includes(:author) }
+  scope :search, ->(query) do
+    return if query.blank?
+
+    where('title ILIKE ? OR title ILIKE ?', "#{query.squish}%", "% #{query.squish}%")
+  end
 end

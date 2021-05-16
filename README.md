@@ -1,24 +1,13 @@
-# README
+# Twittogram
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Twittogram is a Ruby on Rails project, deployed on heroku, you can reach it [here](https://twittogram.herokuapp.com/).
 
-Things you may want to cover:
+### Features implemented
+* Getting started (Posts + comments) - 5
+* Authentication - 2
+* Authorization + admin mode - 4
+* Pictures upload + S3 - 4
+* Deploy on heroku - 3
+* Posts search - 2
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Total : 20 ;)

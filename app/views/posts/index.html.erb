@@ -1,12 +1,26 @@
 
 <div class="row">
-  <div class="col-md-9 col-12">
+  <div class="col-11">
     <div class="row align-items-center mb-4">
       <div class="col-auto"><h4 class="pt-2">Your feed</h4></div>
       <div class="col-auto">
         <%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
       </div>
+
+      <div class="col-6 ms-auto">
+        <%= form_with method: :get, class: "row row-cols-lg-auto g-3 align-items-center" do |form|  %>
+          <div class="col-12">
+            <%= form.text_field :query, class:"form-control", placeholder: "Search", value: params[:query] %>
+          </div>
+          <div class="col-12">
+            <%= form.submit "Search", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
+  </div>
+  <div class="col-md-9 col-12">
+
 
     <%= render 'posts', posts: @posts %>
 
