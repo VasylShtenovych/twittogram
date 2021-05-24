@@ -11,7 +11,14 @@
     </p>
     <p class="mb-1"><a class="fst-italic text-dark text-decoration-none" href="#"><%= post.author.username %></a></p>
     <p class="mb-1"><%= link_to post.created_at, post, class:"fst-italic text-dark text-decoration-none" %></p>
-    <p><%= post.body %></p>
+    <p>
+
+      <% if post.body.length < 250 %>
+        <%= post.body %>
+      <% else %>
+        <%= post.body[0,250] %> <%= link_to "Read more...", post %>
+      <% end %>
+    </p>
 
     <% if post.post_picture.attached? %>
       <img src="<%=(url_for(post.post_picture))%>" class="mw-100" alt="">

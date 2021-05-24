@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     authorize Post
 
-    @posts = Post.drafts(false).ordered.with_authors.search(params[:query])
+    @posts = Post.drafts(false).ordered.with_authors.search(params[:query]).page params[:page]
   end
 
   # GET /posts/drafts

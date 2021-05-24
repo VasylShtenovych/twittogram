@@ -2,12 +2,12 @@
 <div class="row">
   <div class="col-11">
     <div class="row align-items-center mb-4">
-      <div class="col-auto"><h4 class="pt-2">Your feed</h4></div>
+      <div class="col-auto mb-2"><h4 class="pt-2">Your feed</h4></div>
       <div class="col-auto">
         <%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
       </div>
 
-      <div class="col-6 ms-auto">
+      <div class="col-md-6 col-12 ms-auto">
         <%= form_with method: :get, class: "row row-cols-lg-auto g-3 align-items-center" do |form|  %>
           <div class="col-12">
             <%= form.text_field :query, class:"form-control", placeholder: "Search", value: params[:query] %>
@@ -24,6 +24,6 @@
 
     <%= render 'posts', posts: @posts %>
 
-
+    <%= paginate @posts %>
   </div>
 </div>

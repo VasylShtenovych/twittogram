@@ -9,5 +9,6 @@ Twittogram is a Ruby on Rails project, deployed on heroku, you can reach it [her
 * Pictures upload + S3 - 4
 * Deploy on heroku - 3
 * Posts search - 2
+* Posts pagination - 2
 
-Total : 20 ;)
+Total : 20(+2)
